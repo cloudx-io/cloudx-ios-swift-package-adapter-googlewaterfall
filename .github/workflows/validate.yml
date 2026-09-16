@@ -21,11 +21,20 @@ jobs:
       - name: Resolve dependencies
         run: swift package resolve
       - name: Build and test iOS consumers
-        run: >-
-          xcodebuild test
-          -scheme CloudXGoogleWaterfallAdapter
-          -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
-          CODE_SIGNING_ALLOWED=NO
+        run: |
+          destination=$(xcrun simctl list devices available --json | \
+            jq -r '[.devices[][] | select(.isAvailable)][0].udid // empty')
+          if [[ -n "$destination" ]]; then
+            xcodebuild test \
+              -scheme CloudXGoogleWaterfallAdapter \
+              -destination "id=$destination" \
+              CODE_SIGNING_ALLOWED=NO
+          else
+            xcodebuild build-for-testing \
+              -scheme CloudXGoogleWaterfallAdapter \
+              -destination 'generic/platform=iOS Simulator' \
+              CODE_SIGNING_ALLOWED=NO
+          fi
       - name: Verify artifact checksum
         run: |
           curl --fail --location --output /tmp/CloudXGoogleWaterfallAdapter.xcframework.zip \
