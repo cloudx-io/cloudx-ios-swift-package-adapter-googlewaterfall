@@ -20,14 +20,14 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
-            exact: "13.6.0"
+            exact: "13.9.0"
         ),
     ],
     targets: [
         .binaryTarget(
             name: "CloudXGoogleWaterfallAdapter",
-            url: "https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-googlewaterfall/13.6.0.4/CloudXGoogleWaterfallAdapter.xcframework.zip",
-            checksum: "5e9a1a0d1d30149436df98b7ad127e1a2b910b75898e24ec396b2bdfcf70e2ff"
+            url: "https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-googlewaterfall/13.9.0.0/CloudXGoogleWaterfallAdapter.xcframework.zip",
+            checksum: "418afbdba093523bf21e0d84c593d40be590cad1bcdf3bd414edf24650592734"
         ),
         .target(
             name: "CloudXGoogleWaterfallAdapterPackage",

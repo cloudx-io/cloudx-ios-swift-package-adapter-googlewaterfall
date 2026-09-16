@@ -24,6 +24,7 @@ flag to retain the adapter registration code.
 
 | Package version | CloudX adapter | Google Mobile Ads |
 | --- | --- | --- |
+| `13090000.0.0` | `13.9.0.0` | `13.9.0` |
 | `13060004.0.0` | `13.6.0.4` | `13.6.0` |
 
 The package installs CloudX Core and Google Mobile Ads as dependencies. Import

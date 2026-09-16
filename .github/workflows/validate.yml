@@ -29,6 +29,6 @@ jobs:
       - name: Verify artifact checksum
         run: |
           curl --fail --location --output /tmp/CloudXGoogleWaterfallAdapter.xcframework.zip \
-            https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-googlewaterfall/13.6.0.4/CloudXGoogleWaterfallAdapter.xcframework.zip
+            https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-googlewaterfall/13.9.0.0/CloudXGoogleWaterfallAdapter.xcframework.zip
           test "$(swift package compute-checksum /tmp/CloudXGoogleWaterfallAdapter.xcframework.zip)" = \
-            "5e9a1a0d1d30149436df98b7ad127e1a2b910b75898e24ec396b2bdfcf70e2ff"
+            "418afbdba093523bf21e0d84c593d40be590cad1bcdf3bd414edf24650592734"
