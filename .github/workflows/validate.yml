@@ -23,7 +23,7 @@ jobs:
       - name: Build and test iOS consumers
         run: |
           destination=$(xcrun simctl list devices available --json | \
-            jq -r '[.devices[][] | select(.isAvailable)][0].udid // empty')
+            jq -r '[.devices | to_entries[] | select(.key | startswith("com.apple.CoreSimulator.SimRuntime.iOS-")) | .value[] | select(.isAvailable)][0].udid // empty')
           if [[ -n "$destination" ]]; then
             xcodebuild test \
               -scheme CloudXGoogleWaterfallAdapter \
