@@ -1,0 +1,4 @@
+#import <Foundation/Foundation.h>
+
+FOUNDATION_EXPORT double CloudXGoogleWaterfallAdapterPackageVersionNumber;
+FOUNDATION_EXPORT const unsigned char CloudXGoogleWaterfallAdapterPackageVersionString[];

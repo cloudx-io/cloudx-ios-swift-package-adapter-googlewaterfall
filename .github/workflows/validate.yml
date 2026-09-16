@@ -1,0 +1,34 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select Xcode 16
+        run: sudo xcode-select --switch /Applications/Xcode_16.4.app
+      - name: Validate manifest
+        run: swift package dump-package
+      - name: Resolve dependencies
+        run: swift package resolve
+      - name: Build and test iOS consumers
+        run: >-
+          xcodebuild test
+          -scheme CloudXGoogleWaterfallAdapter
+          -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
+          CODE_SIGNING_ALLOWED=NO
+      - name: Verify artifact checksum
+        run: |
+          curl --fail --location --output /tmp/CloudXGoogleWaterfallAdapter.xcframework.zip \
+            https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-googlewaterfall/13.6.0.4/CloudXGoogleWaterfallAdapter.xcframework.zip
+          test "$(swift package compute-checksum /tmp/CloudXGoogleWaterfallAdapter.xcframework.zip)" = \
+            "5e9a1a0d1d30149436df98b7ad127e1a2b910b75898e24ec396b2bdfcf70e2ff"
