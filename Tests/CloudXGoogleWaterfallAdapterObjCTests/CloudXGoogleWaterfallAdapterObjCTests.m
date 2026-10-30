@@ -8,7 +8,7 @@
 @implementation CloudXGoogleWaterfallAdapterObjCTests
 
 - (void)testAdapterIsLinkedAndRegistered {
-    XCTAssertEqualObjects(CLXGoogleWaterfallAdapterVersion, @"13.9.0.0");
+    XCTAssertEqualObjects(CLXGoogleWaterfallAdapterVersion, @"13.11.0.0");
     XCTAssertNotNil(NSClassFromString(@"CLXGoogleWaterfallInitializer"));
 }
 

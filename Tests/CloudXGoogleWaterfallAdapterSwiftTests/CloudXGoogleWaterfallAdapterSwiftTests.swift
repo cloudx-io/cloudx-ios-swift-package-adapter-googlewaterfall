@@ -4,7 +4,7 @@ import XCTest
 
 final class CloudXGoogleWaterfallAdapterSwiftTests: XCTestCase {
     func testAdapterIsLinkedAndRegistered() {
-        XCTAssertEqual(CLXGoogleWaterfallAdapterVersion, "13.9.0.0")
+        XCTAssertEqual(CLXGoogleWaterfallAdapterVersion, "13.11.0.0")
         XCTAssertNotNil(NSClassFromString("CLXGoogleWaterfallInitializer"))
     }
 }

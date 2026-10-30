@@ -24,6 +24,7 @@ flag to retain the adapter registration code.
 
 | Package version | CloudX adapter | Google Mobile Ads |
 | --- | --- | --- |
+| `13110000.0.0` | `13.11.0.0` | `13.11.0` |
 | `13090000.0.0` | `13.9.0.0` | `13.9.0` |
 | `13060004.0.0` | `13.6.0.4` | `13.6.0` |
 
